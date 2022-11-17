@@ -15,6 +15,7 @@ public class PanelPrincipal extends JPanel implements KeyListener{
     public PanelPrincipal () {
         this.setBackground(new Color(100,255,100));
         this.addKeyListener(this);
+        this.setFocusable(true);
     }
     
     @Override
@@ -22,6 +23,7 @@ public class PanelPrincipal extends JPanel implements KeyListener{
         super.paint(g); 
         road.paint(g);
         car.paint(g);
+        this.requestFocus();
     }
     
     @Override
