@@ -4,6 +4,7 @@ package vehicle;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import static java.lang.Math.*;
 
 /**
  *
@@ -11,21 +12,62 @@ import java.awt.Graphics2D;
  */
 public class Auto {
     private Color color;
+    private int centerX;
+    private int centerY;
     private int[] intX;
     private int[] intY;
-    public Auto (Color c){
+    private double[] radio;
+    private double degree;
+    private double[] degrees;
+
+    public Auto (Color c, int x, int y){
         color = c;
-        intX = new int[]{80, 140, 150, 110, 70};
-        intY = new int[]{300, 300, 220, 180, 220};
+        centerX = x;
+        centerY = y;
+        radio = new double[]{40,Math.sqrt(400+625),Math.sqrt(90+225),Math.sqrt(90+225),Math.sqrt(400+625)};
+        degrees = new double[]{0,-40,-140,140,40};
+        /*intX = new int[]{x+40, x+20, x-30, x-30, x+20};
+        intY = new int[]{y, y+25, y+15, y-15, y-25};*/
+        
+        intX = new int[]{0,0,0,0,0};
+        for(int i = 0; i < 5; i++){
+            intX[i] = (int) (x + radio[i]*cos(Math.toRadians(degrees[i])));
+        }
+        intY = new int[]{0,0,0,0,0};
+        for(int i = 0; i < 5; i++){
+            intY[i] = (int) (y + radio[i]*sin(Math.toRadians(degrees[i])));
+        }
     }
     
-    public void setXY(int x, int y, int angle){
+    public void setXY(int vel, double angle){
+        degree += angle;
+        centerY = (int) (centerY + vel*sin(Math.toRadians(degree)));
+        centerX = (int) (centerX + vel*cos(Math.toRadians(degree)));
         
+        for(int i = 0; i < 5; i++){
+            intX[i] = (int) (centerX + radio[i]*cos(Math.toRadians(degrees[i]+degree)));
+        }
+        for(int i = 0; i < 5; i++){
+            intY[i] = (int) (centerY + radio[i]*sin(Math.toRadians(degrees[i]+degree)));
+        }
+        
+        /*for(int i = 0; i < 5; i++){
+            //if(angle!=0) intY[i]+=(int)((intY[i]-centerY)*sin(Math.toRadians(degree)));
+            intY[i]+=(int)(vel*sin(Math.toRadians(degree)));
+        }
+        for(int i = 0; i < 5; i++){
+            //if(angle!=0) intX[i]+=(int)((intX[i]-centerX)*cos(Math.toRadians(degree)));
+            intX[i]+=(int)(cos(Math.toRadians(degree))*vel);
+        }*/
     }
     
     public void paint(Graphics g){
         Graphics2D car = (Graphics2D)g;
+        car.setColor(new Color(100,255,100));    //pasto
+        car.fillOval(200, 200, 270, 270);
+        
         car.setColor(color);
         car.fillPolygon(intX, intY, 5);
+        
     }
 }
