@@ -25,4 +25,6 @@ El panel principal debe contener una ruta cerrada, con curvas y soleras creadas 
   2. Movimiento del Auto: Problemas para que el auto rote con el movimiento.  
       - Estado: resuelto.  
   3. Creación de Ruedas: Falta crear ruedas para el auto que se muevan en la dirección de este.  
-      - Estado: por consultar
+      - Estado: por consultar  
+  4. Dudas con clase Polygon: No se ha ocupado la clase Polygon hasta el momento y hay dudas sobre su implementación  
+       -Estado: por consultar.
