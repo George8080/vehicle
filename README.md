@@ -23,6 +23,6 @@ El panel principal debe contener una ruta cerrada, con curvas y soleras creadas 
   1. Soleras: Problemas para crearlas visualmente y que tengan colisiones al chocar con el auto.  
      - Estado: por consultar  
   2. Movimiento del Auto: Problemas para que el auto rote con el movimiento.  
-      - Estado: por consultar.  
+      - Estado: resuelto.  
   3. Creación de Ruedas: Falta crear ruedas para el auto que se muevan en la dirección de este.  
       - Estado: por consultar
