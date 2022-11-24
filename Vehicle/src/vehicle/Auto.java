@@ -16,6 +16,10 @@ public class Auto {
     private int centerY;
     private int[] intX;
     private int[] intY;
+    private Ruedas  upperLeft;
+    private Ruedas upperRight;
+    private Ruedas lowerLeft;
+    private Ruedas lowerRight;
     private double[] radio;
     private double degree;
     private double[] degrees;
@@ -26,6 +30,12 @@ public class Auto {
         centerY = y;
         radio = new double[]{40,Math.sqrt(400+625),Math.sqrt(90+225),Math.sqrt(90+225),Math.sqrt(400+625)};
         degrees = new double[]{0,-40,-140,140,40};
+            lowerLeft= new Ruedas(x-12,y+12);
+            lowerRight= new Ruedas(x-12,y-12);
+            upperLeft= new Ruedas(x+15,y+20);
+            upperRight= new Ruedas(x+15,y-20);
+        
+        
         /*intX = new int[]{x+40, x+20, x-30, x-30, x+20};
         intY = new int[]{y, y+25, y+15, y-15, y-25};*/
         
@@ -59,13 +69,19 @@ public class Auto {
             //if(angle!=0) intX[i]+=(int)((intX[i]-centerX)*cos(Math.toRadians(degree)));
             intX[i]+=(int)(cos(Math.toRadians(degree))*vel);
         }*/
+        
+            lowerLeft.setXY(vel, angle);
+            lowerRight.setXY(vel, angle);
+            upperLeft.setXY(vel, angle);
+            upperRight.setXY(vel, angle);
     }
     
     public void paint(Graphics g){
         Graphics2D car = (Graphics2D)g;
-        car.setColor(new Color(100,255,100));    //pasto
-        car.fillOval(200, 200, 270, 270);
-        
+         lowerLeft.paint(g);
+            lowerRight.paint(g);
+            upperLeft.paint(g);
+            upperRight.paint(g);
         car.setColor(color);
         car.fillPolygon(intX, intY, 5);
         
