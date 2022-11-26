@@ -16,6 +16,7 @@ public class PanelPrincipal extends JPanel implements KeyListener, ActionListene
     Auto car = new Auto(Color.red, 170,250);
     Pista road = new Pista();
     Solera beam = new Solera();
+    //Ruedas tire= new Ruedas(170, 250);
     private Timer t;
     private boolean up = false;
     private boolean down = false;
@@ -38,9 +39,9 @@ public class PanelPrincipal extends JPanel implements KeyListener, ActionListene
     public void paint (Graphics g) {    // Metodo para imprimir en la interfaz.
         
         super.paint(g); 
-       beam.paint(g);      
-       road.paint(g);
-       car.paint(g);
+        beam.paint(g);      
+        road.paint(g);
+        car.paint(g);
         this.requestFocus();
     }
     
