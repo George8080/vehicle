@@ -108,42 +108,41 @@ public class PanelPrincipal extends JPanel implements KeyListener, ActionListene
     @Override
     public void actionPerformed(ActionEvent e) {
         if(down){
-            if(vel<=30) vel+=3;
-            if(vel>30) vel = 30;
+            if(vel<=10) vel+=1;
+            if(vel>10) vel = 10;
         }
         else if(up){
-            if(vel>=-30) vel-=2;
-            if(vel<-30) vel = -30;
+            if(vel>=-10) vel-=1;
+            if(vel<-10) vel = -10;
         }if(!up && !down){
             if(vel < 0){
-                vel+=1;
+                vel+=0.5;
                 if(vel > 0) vel = 0;
             }
             else if(vel > 0){
-                vel-=1;
+                vel-=0.5;
                 if(vel < 0) vel = 0;
             }
         }
         
         if(left){
-            if(grados>=-20) grados-=2;
-            if(grados<-20) grados = -20;
+            if(grados>=-5) grados-=0.5;
+            if(grados<-5) grados = -5;
         }
         else if(right){
-            if(grados<=20) grados+=2;
-            if(grados>20) grados = 20;
+            if(grados<=5) grados+=0.5;
+            if(grados>5) grados = 5;
         }if(!left && !right){
             if(grados < 0){
-                grados+=2;
+                grados+=0.5;
                 if(grados > 0) grados = 0;
             }
             else if(grados > 0){
-                grados-=2;
+                grados-=0.5;
                 if(grados < 0) grados = 0;
             }
         }
         
-        //grados+=7.5;
         car.setXY(-vel, grados);
         this.repaint();
     }
