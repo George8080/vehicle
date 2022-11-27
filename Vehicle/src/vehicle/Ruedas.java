@@ -12,57 +12,43 @@ import static java.lang.Math.sin;
  * @author danino y jorge
  */
 public class Ruedas{
-    private int centerX;
-    private int centerY;
-    private int centerRadio;
-    private int[] intX;
-    private int[] intY;
-    private double[] radio;
-    private double degree=0;
-    private double[] degrees;
-    private double angulo;
+    private double wheelRad;
+    private double wheelAng;
+    private int[] intX = new int[]{0,0,0,0};
+    private int[] intY = new int[]{0,0,0,0};
+    private double radio = Math.sqrt(100);
+    private double[] degrees = new double[]{30,-30,-150,150};
     
-    public Ruedas ( int cX, int x, int cY, int y, double angle) {
-        angulo = Math.toDegrees(Math.atan(y/x))+angle;
-        System.out.println(angulo);
-        centerX = (int) (cX+ Math.sqrt(x*x + y*y)*sin(Math.toRadians(angulo)));
-        centerY = (int) (cY+ Math.sqrt(x*x + y*y)*sin(Math.toRadians(angulo)));
-        //centerRadio = (int) Math.sqrt(x*x+y*y);
-        radio = new double[]{Math.sqrt(41),Math.sqrt(41),Math.sqrt(41),Math.sqrt(41)};
-        degrees = new double[]{30+angle,-30+angle,-150+angle,150+angle};
-        /*intX = new int[]{x+40, x+20, x-30, x-30, x+20};
-        intY = new int[]{y, y+25, y+15, y-15, y-25};*/
-        
-        intX = new int[]{0,0,0,0};
-        for(int i = 0; i < 4; i++){
-            intX[i] = (int) (centerX + radio[i]*cos(Math.toRadians(degrees[i])));
+    public Ruedas ( double cX, double x, double cY, double y, double angle) {
+        wheelAng = (int)( angle+Math.toDegrees(Math.atan2(y,x)));
+        wheelRad = (int) Math.sqrt(x*x + y*y);
+        for (int i = 0; i < 4; i++) {
+            degrees[i] += angle;
+            intX[i] = (int) (radio*cos(Math.toRadians(degrees[i])));
+            intY[i] = (int) (radio*sin(Math.toRadians(degrees[i])));
+            
+            intX[i] += cX + (int) (wheelRad*cos(Math.toRadians(wheelAng)));
+            intY[i] += cY + (int) (wheelRad*sin(Math.toRadians(wheelAng)));
         }
-        intY = new int[]{0,0,0,0};
-        for(int i = 0; i < 4; i++){
-            intY[i] = (int) (centerY + radio[i]*sin(Math.toRadians(degrees[i])));
-    }
     
     }
-    public void setXY(int vel, double angle){
-        angulo += angle;
-        centerY = (int) (centerY + vel*sin(Math.toRadians(angulo)));
-        centerX = (int) (centerX + vel*cos(Math.toRadians(angulo)));
-        
-        for(int i = 0; i < 4; i++){
-            intX[i] = (int) (centerX + radio[i]*cos(Math.toRadians(degrees[i]+angulo)));
+    public void setXY(double cX, double cY, double angle, double extra){
+        wheelAng += angle;
+        for (int i = 0; i < 4; i++) {
+            degrees[i] += angle;
+            intX[i] = (int) (radio*cos(Math.toRadians(degrees[i]+extra)));
+            intY[i] = (int) (radio*sin(Math.toRadians(degrees[i]+extra)));
+            
+            intX[i] += cX + (int) (wheelRad*cos(Math.toRadians(wheelAng)));
+            intY[i] += cY + (int) (wheelRad*sin(Math.toRadians(wheelAng)));
+            System.out.println(i +": "+ intX[i] + " _ " + intY[i]);
         }
-        for(int i = 0; i < 4; i++){
-            intY[i] = (int) (centerY + radio[i]*sin(Math.toRadians(degrees[i]+angulo)));
-        }
-    
     }
  
     
     public void paint(Graphics g){
-    Graphics2D tire = (Graphics2D)g;
+        Graphics2D tire = (Graphics2D)g;
         tire.setColor(Color.black);           //upper left tire
         tire.fillPolygon(intX, intY, 4);
-    
     }
-    
 }
