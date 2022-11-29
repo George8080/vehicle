@@ -22,11 +22,11 @@ public class PanelPrincipal extends JPanel implements KeyListener, ActionListene
     private boolean down = false;
     private boolean left = false;
     private boolean right = false;
-    private int vel = 0;
+    private double vel = 0;
     private double grados = 0;
 
     public PanelPrincipal () {
-        this.t = new Timer(100, this);
+        this.t = new Timer(16, this);
         this.setBackground(new Color(100,255,100));
         this.addKeyListener(this);
         this.setFocusable(true);
@@ -108,19 +108,19 @@ public class PanelPrincipal extends JPanel implements KeyListener, ActionListene
     @Override
     public void actionPerformed(ActionEvent e) {
         if(down){
-            if(vel<=10) vel+=1;
-            if(vel>10) vel = 10;
+            if(vel<=1.75) vel+=0.025;
+            if(vel>1.75) vel = 2;
         }
         else if(up){
-            if(vel>=-10) vel-=1;
-            if(vel<-10) vel = -10;
+            if(vel>=-2.0) vel-=0.05;
+            if(vel<-2.0) vel = -2.0;
         }if(!up && !down){
             if(vel < 0){
-                vel+=0.5;
+                vel+=0.03;
                 if(vel > 0) vel = 0;
             }
             else if(vel > 0){
-                vel-=0.5;
+                vel-=0.03;
                 if(vel < 0) vel = 0;
             }
         }
