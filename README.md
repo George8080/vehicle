@@ -21,17 +21,24 @@ El panel principal debe contener una ruta cerrada, con curvas y soleras creadas 
     
   ## Lista de cosas qué no sabemos hacer y/o que nos faltan
   1. Soleras: Problemas para crearlas visualmente y que tengan colisiones al chocar con el auto.  
-     - Estado: por consultar  
+     - Estado: por consultar 
+     -Integrante encargado: Daniela Novoa
   2. Movimiento del Auto: Problemas para que el auto rote con el movimiento.  
       - Estado: resuelto.  
   3. Creación de Ruedas: Falta crear ruedas para el auto que se muevan en la dirección de este.  
-      - Estado: por consultar  
-  4. Dudas con clase Polygon: No se ha ocupado la clase Polygon hasta el momento y hay dudas sobre su implementación  
-       -Estado: resuelto.
+      - Estado: resuelto
+  4. Dudas con clase Polygon: No se ha ocupado la clase Polygon hasta el momento y hay dudas sobre su implementación; específicamente para la creación de        la pista y soleras.  
+       -Estado: por consultar
+       -Integrante encargado: Daniela Novoa y Jorge Santis
   5. Creacion de Test Unitarios: Todavía falta crear test unitarios, y hay dudas sobre su elaboración  
        -Estado: por consultar.
+       -Integrante encargado: Jorge Santis
   6. Creación de Javadoc: Se esta esperando a alcanzar las etapas finales del trabajo para incluir los javadoc
        -Estado: por crear
+       -Integrantes encargados
   7. Separar en packages: Falta ordenar en packages
        -Estado: por crear
-       
+       -Integrante encargado: Daniela Novoa
+  8. Creación de Menu: Incluye modo edición dónde se puede modificar las medidas de la pista, y el modo carrera dónde el usuario puede controlar el auto.
+       -Estado: en proceso
+       -Integrante encargado: Jorge Santis
