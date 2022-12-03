@@ -19,7 +19,7 @@ El panel principal debe contener una ruta cerrada, con curvas y soleras creadas 
     
   ## Imagen de la Interfaz  
     
-  ## Lista de cosas qué no sabemos hacer  
+  ## Lista de cosas qué no sabemos hacer y/o que nos faltan
   1. Soleras: Problemas para crearlas visualmente y que tengan colisiones al chocar con el auto.  
      - Estado: por consultar  
   2. Movimiento del Auto: Problemas para que el auto rote con el movimiento.  
@@ -27,4 +27,11 @@ El panel principal debe contener una ruta cerrada, con curvas y soleras creadas 
   3. Creación de Ruedas: Falta crear ruedas para el auto que se muevan en la dirección de este.  
       - Estado: por consultar  
   4. Dudas con clase Polygon: No se ha ocupado la clase Polygon hasta el momento y hay dudas sobre su implementación  
+       -Estado: resuelto.
+  5. Creacion de Test Unitarios: Todavía falta crear test unitarios, y hay dudas sobre su elaboración  
        -Estado: por consultar.
+  6. Creación de Javadoc: Se esta esperando a alcanzar las etapas finales del trabajo para incluir los javadoc
+       -Estado: por crear
+  7. Separar en packages: Falta ordenar en packages
+       -Estado: por crear
+       
