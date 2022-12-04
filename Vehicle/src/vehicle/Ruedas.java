@@ -41,7 +41,7 @@ public class Ruedas{
             
             intX[i] += cX + (int) (wheelRad*cos(Math.toRadians(wheelAng)));
             intY[i] += cY + (int) (wheelRad*sin(Math.toRadians(wheelAng)));
-            System.out.println(i +": "+ intX[i] + " _ " + intY[i]);
+            //System.out.println(i +": "+ intX[i] + " _ " + intY[i]);
         }
     }
  
