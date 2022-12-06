@@ -53,14 +53,14 @@ public class PanelPrincipal extends JPanel implements KeyListener, ActionListene
         this.width.setBackground(new Color(235,235,235));
         this.high.setBackground(new Color(235,235,235));
         this.avenue.setBackground(new Color(235,235,235));
-        this.widthP = new JButton("+");
-        this.widthM = new JButton("-");
-        this.highP = new JButton("+");
-        this.highM = new JButton("-");
-        this.avenueP = new JButton("+");
-        this.avenueM = new JButton("-");
-        this.min = new JButton("<html><p>Establecer</p><p>Mínimos</p></html>");
-        this.max = new JButton("<html><p>Establecer</p><p>Máximos</p></html>");
+        this.widthP = new JButton("<html>+</html>");
+        this.widthM = new JButton("<html>-</html>");
+        this.highP = new JButton("<html>+</html>");
+        this.highM = new JButton("<html>-</html>");
+        this.avenueP = new JButton("<html>+</html>");
+        this.avenueM = new JButton("<html>-</html>");
+        this.min = new JButton("<html><p>Establecer</p><p>Mínimos   </p></html>");
+        this.max = new JButton("<html><p>Establecer</p><p>Máximos   </p></html>");
         
         this.button1.setText("Modo Carrera");
         this.button1.addActionListener(this);
