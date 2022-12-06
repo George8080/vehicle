@@ -40,5 +40,9 @@ El panel principal debe contener una ruta cerrada, con curvas y soleras creadas 
        - Estado: por crear         
        - Integrante encargado: Daniela Novoa
   8. Creación de Menu: Incluye modo edición dónde se puede modificar las medidas de la pista, y el modo carrera dónde el usuario puede controlar el auto.
-       - Estado: en proceso  
+       - Estado: relizado  
        - Integrante encargado: Jorge Santis
+  9. Colisión: Generar un choque entre las soleras y el auto en caso de que entren en contacto, junto con un contador que muestre la cantidad de veces que el auto colisionó.
+       - Estado: por crear    
+       - Integrante encargado: Daniela Novoa
+  
