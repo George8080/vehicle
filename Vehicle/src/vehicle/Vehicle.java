@@ -2,6 +2,8 @@
 
 package vehicle;
 
+import GUI.Ventana;
+
 /**
  * @author Jorge Santis y Daniela Novoa
  */
