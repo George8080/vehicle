@@ -1,7 +1,8 @@
 
-package vehicle;
+package GUI;
 
 import javax.swing.JFrame;
+import vehicle.PanelPrincipal;
 
 public class Ventana extends JFrame{
     // Crear un nuevo panel.

@@ -2,6 +2,7 @@
 package vehicle;
 
 // Importar librerias necesarias para el funcionamiento del codigo
+import CarCreation.Auto;
 import java.awt.Color;
 import javax.swing.JPanel;
 import java.awt.Graphics;
