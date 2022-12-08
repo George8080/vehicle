@@ -10,14 +10,15 @@ import java.awt.Graphics2D;
  * @author jorge
  */
 public class Pista {
-    private int large;
-    private int high;
     private int width;
+    private int height;
+    private int breadth;
+    
     public Pista(){
-        large = 0;
-        high = 0;
-        width = 175;
-        //width = 1;
+        width = 0;
+        height = 0;
+        breadth = 175;
+        //breadth = 1;
     }
     
     public void paint(Graphics g){
@@ -25,54 +26,54 @@ public class Pista {
         Graphics2D solera = (Graphics2D)g;  
          
         solera.setColor(Color.darkGray);   //solera externa
-        solera.fillOval(large, high, 643-(2*large), 643-(2*high));     
+        solera.fillOval(width, height, 643-(2*width), 643-(2*height));     
         
         /*solera.setColor(Color.black);  //solera externa
         solera.fillOval(200, 200, 300, 300);
         */
         road.setColor(Color.gray);      //pista
-        road.fillOval(10+large, 10+high, 623-(2*large), 623-(2*high));  
+        road.fillOval(10+width, 10+height, 623-(2*width), 623-(2*height));  
         
         
         road.setColor(Color.darkGray);    //solera interna
-        road.fillOval(10+large/2+width, width+10+high/2, 623-(2*width)-large, 623-(2*width)-high);
+        road.fillOval(10+width/2+breadth, breadth+10+height/2, 623-(2*breadth)-width, 623-(2*breadth)-height);
         
         road.setColor(new Color(100,255,100));    //pasto
-        road.fillOval(20+large/2+width, width+20+high/2, 603-(2*width)-large, 603-(2*width)-high);
+        road.fillOval(20+width/2+breadth, breadth+20+height/2, 603-(2*breadth)-width, 603-(2*breadth)-height);
     }
     
     public void setSize(int x, int y, int z){
-        large += x;
-        if(large > 185)
-            large = 185;
-        else if(large < 0)
-            large = 0;
+        width += x;
+        if(width > 185)
+            width = 185;
+        else if(width < 0)
+            width = 0;
         
-        high += y;
-        if(high > 185)
-            high = 185;
-        else if(high < 0)
-            high = 0;
+        height += y;
+        if(height > 185)
+            height = 185;
+        else if(height < 0)
+            height = 0;
         
-        width += z;
+        breadth += z;
         /*
-        if(width > 10) width = 10;
-        else if(width < 0) width = 0;
+        if(breadth > 10) breadth = 10;
+        else if(breadth < 0) breadth = 0;
         */
-        if(width > 195)
-            width = 190;
-        else if(width < 160)
-            width = 160;
+        if(breadth > 195)
+            breadth = 190;
+        else if(breadth < 160)
+            breadth = 160;
         
     }
     public void setMin(){
-        large = 185;
-        high = 185;
-        width = 195;
+        width = 185;
+        height = 185;
+        breadth = 195;
     }
     public void setMax(){
-        large = 0;
-        high = 0;
-        width = 160;
+        width = 0;
+        height = 0;
+        breadth = 160;
     }
 }
