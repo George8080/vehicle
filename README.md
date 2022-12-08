@@ -11,7 +11,7 @@ El panel principal debe contener una ruta cerrada, con curvas y soleras creadas 
 
 ## Use Case Diagram  
   
-  ![](Casos De Uso.png)  
+  ![](CasosDeUso.png)  
     
  ## Diagrama del UML  
    
