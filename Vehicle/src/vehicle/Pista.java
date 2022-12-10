@@ -7,7 +7,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 /**
- * @author jorge
+ * @author Daniela Novoa
+ * @author Jorge Santis
  */
 public class Pista {
     private int width;
@@ -15,31 +16,33 @@ public class Pista {
     private int breadth;
     
     public Pista(){
-        width = 0;
-        height = 0;
+        width = 10;
+        height = 10;
         breadth = 175;
         //breadth = 1;
     }
     
     public void paint(Graphics g){
         Graphics2D road = (Graphics2D)g;
-        Graphics2D solera = (Graphics2D)g;  
-         
-        solera.setColor(Color.darkGray);   //solera externa
-        solera.fillOval(width, height, 643-(2*width), 643-(2*height));     
+                 
+        road.setColor(Color.black);   //solera externa
+        road.fillOval(width-10, height-10, 665-(2*width), 665-(2*height));   
         
-        /*solera.setColor(Color.black);  //solera externa
-        solera.fillOval(200, 200, 300, 300);
-        */
+        road.setColor(Color.darkGray);   //limite de pista  externo
+        road.fillOval(width, height, 643-(2*width), 643-(2*height));     
+        
         road.setColor(Color.gray);      //pista
         road.fillOval(10+width, 10+height, 623-(2*width), 623-(2*height));  
         
         
-        road.setColor(Color.darkGray);    //solera interna
+        road.setColor(Color.darkGray);    //limite de pista interno
         road.fillOval(10+width/2+breadth, breadth+10+height/2, 623-(2*breadth)-width, 623-(2*breadth)-height);
         
+        road.setColor(Color.black);           //solera interna
+        road.fillOval(15+width/2+breadth, breadth+15+height/2, 613-(2*breadth)-width, 613-(2*breadth)-height);
+        
         road.setColor(new Color(100,255,100));    //pasto
-        road.fillOval(20+width/2+breadth, breadth+20+height/2, 603-(2*breadth)-width, 603-(2*breadth)-height);
+        road.fillOval(25+width/2+breadth, breadth+25+height/2, 593-(2*breadth)-width, 593-(2*breadth)-height);
     }
     
     public void setSize(int x, int y, int z){
