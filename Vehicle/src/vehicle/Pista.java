@@ -2,6 +2,7 @@
 
 package vehicle;
 
+import CarCreation.Auto;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -14,12 +15,13 @@ public class Pista {
     private int width;
     private int height;
     private int breadth;
+    Auto car= new Auto(Color.red, 170, 250);
     
-    public Pista(){
+    public Pista(){  
         width = 10;
         height = 10;
         breadth = 175;
-        //breadth = 1;
+
     }
     
     public void paint(Graphics g){
@@ -32,8 +34,7 @@ public class Pista {
         road.fillOval(width, height, 643-(2*width), 643-(2*height));     
         
         road.setColor(Color.gray);      //pista
-        road.fillOval(10+width, 10+height, 623-(2*width), 623-(2*height));  
-        
+        road.fillOval(10+width, 10+height, 623-(2*width), 623-(2*height));         
         
         road.setColor(Color.darkGray);    //limite de pista interno
         road.fillOval(10+width/2+breadth, breadth+10+height/2, 623-(2*breadth)-width, 623-(2*breadth)-height);
@@ -44,7 +45,12 @@ public class Pista {
         road.setColor(new Color(100,255,100));    //pasto
         road.fillOval(25+width/2+breadth, breadth+25+height/2, 593-(2*breadth)-width, 593-(2*breadth)-height);
     }
-    
+    /**
+     * 
+     * @param x
+     * @param y
+     * @param z 
+     */
     public void setSize(int x, int y, int z){
         width += x;
         if(width > 185)
@@ -69,14 +75,24 @@ public class Pista {
             breadth = 160;
         
     }
+    /**
+     * Este método establece el mínimo tamaño de la pista
+     */
     public void setMin(){
         width = 185;
         height = 185;
         breadth = 195;
     }
+    /**
+     * Este metodo establece el maximo tamaño de la pista
+     */
     public void setMax(){
         width = 0;
         height = 0;
         breadth = 160;
+    }
+    public double Perimeter(){
+        double area=Math.PI*(width+height);
+        return area;
     }
 }

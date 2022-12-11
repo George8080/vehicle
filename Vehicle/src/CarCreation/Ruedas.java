@@ -9,7 +9,8 @@ import static java.lang.Math.sin;
 
 /**
  *
- * @author danino y jorge
+ * @author Daniela Novoa
+ * @author Jorge Santis
  */
 public class Ruedas{
     private double wheelRad;
@@ -32,6 +33,13 @@ public class Ruedas{
         }
     
     }
+    /**
+     * 
+     * @param cX
+     * @param cY
+     * @param angle
+     * @param extra 
+     */
     public void setXY(double cX, double cY, double angle, double extra){
         wheelAng += angle;
         for (int i = 0; i < 4; i++) {
@@ -44,7 +52,10 @@ public class Ruedas{
             //System.out.println(i +": "+ intX[i] + " _ " + intY[i]);
         }
     }
- 
+    /**
+     * 
+     * @param g 
+     */
     
     public void paint(Graphics g){
         Graphics2D tire = (Graphics2D)g;

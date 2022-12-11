@@ -14,6 +14,12 @@ import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.Timer;
 
+/**
+ * 
+ * @author Daniela Novoa
+ * @author Jorge Santis
+ */
+
 public class PanelPrincipal extends JPanel implements KeyListener, ActionListener{
     private JButton button1;
     
@@ -109,9 +115,14 @@ public class PanelPrincipal extends JPanel implements KeyListener, ActionListene
         t.addActionListener(this);
         t.start();
     }
+    /**
+     *  Ocupamos este método para imprimir en la interfaz
+     * 
+     * @param g 
+     */
     
     @Override
-    public void paint (Graphics g) {    // Metodo para imprimir en la interfaz.
+    public void paint (Graphics g) {   
         super.paint(g);  
         road.paint(g);
         if(gameplay) car.paint(g);
@@ -142,6 +153,14 @@ public class PanelPrincipal extends JPanel implements KeyListener, ActionListene
         }
         this.repaint();
     }
+    /**
+     *  Este método permite detectar las teclas presionadas para 
+     *  controlar la dirección del auto
+     * 
+     * @param e Recibe un KeyEvent con el que comparamos el
+     *  caracter presionado y su localización para ver si corresponde
+     *  a alguna dirección por ejemplo la tecla UP o W
+     */
     
     @Override
     public void keyReleased(KeyEvent e){
@@ -170,12 +189,12 @@ public class PanelPrincipal extends JPanel implements KeyListener, ActionListene
 
     @Override
     public void keyTyped(KeyEvent e) {
-        int keyI = e.getKeyCode();
-        char keyC = e.getKeyChar();
-        int keyL = e.getKeyLocation();
-        System.out.println("Tecla tipeada: "+keyI+" _ " + keyC + " _ " + keyL);
-        if(keyI==KeyEvent.VK_W) System.out.println("T: W");
-        this.repaint();
+//        int keyI = e.getKeyCode();
+//        char keyC = e.getKeyChar();
+//        int keyL = e.getKeyLocation();
+//        System.out.println("Tecla tipeada: "+keyI+" _ " + keyC + " _ " + keyL);
+//        if(keyI==KeyEvent.VK_W) System.out.println("T: W");
+//        this.repaint();
     }
     
     public void activateConfigButtons(boolean b){
@@ -191,6 +210,16 @@ public class PanelPrincipal extends JPanel implements KeyListener, ActionListene
         this.min.setVisible(b);
         this.max.setVisible(b);
     }
+    /**
+     *  Este método detecta los cambios que el usuario quiere hacerle a la 
+     *  pista en modo edición cuando este hace click en los botones, permite
+     *  cambios en el ancho, largo y grosor y establece mínimos y máximos
+     *  tamaños
+     * 
+     * @param e Recibimos un ActionEvent como parametro para ver si
+     *  el lugar donde ocurre la acción (el click) corresponde a alguno de los
+     *  botones creados
+     */
     
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -275,5 +304,10 @@ public class PanelPrincipal extends JPanel implements KeyListener, ActionListene
             car.setXY(-vel, grados);
         }
         this.repaint();
+    }
+    public void inArea(){
+        if(car.getCenterX()>road.Perimeter()){
+            System.out.println("!!");
+        }
     }
 }

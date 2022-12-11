@@ -5,7 +5,8 @@ package vehicle;
 import GUI.Ventana;
 
 /**
- * @author Jorge Santis y Daniela Novoa
+ * @author Daniela Novoa
+ * @author Jorge Santis
  */
 public class Vehicle {
 
