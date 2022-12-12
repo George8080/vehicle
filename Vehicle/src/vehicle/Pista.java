@@ -20,7 +20,7 @@ public class Pista {
     public Pista(){  
         width = 10;
         height = 10;
-        breadth = 175;
+        breadth = 160;
 
     }
     
@@ -87,12 +87,69 @@ public class Pista {
      * Este metodo establece el maximo tamaño de la pista
      */
     public void setMax(){
-        width = 0;
-        height = 0;
+        width = 10;
+        height = 10;
         breadth = 160;
     }
-    public double Perimeter(){
-        double area=Math.PI*(width+height);
-        return area;
+    /**
+     *  Este método define una elipse en los límites de la pista
+     * para que sirvan de solera
+     * 
+     * @param Y Recibe la coordenada Y del centro del auto, en
+     * la clase PanelPrincipal
+     * 
+     * @return Retorna la posición X del auto
+     */
+    public double elipse_X(double Y){
+        double A= 643-(2*width)-height;
+        double B= 643 - (2 * height)-width;
+        A= (A/2)*(A/2);
+        B= (B/2)*(B/2);
+        
+        double X = A - (A*Y*Y) / (B);
+        //System.out.println("X externo ideal: "+X);
+        return X;
+    }/**
+     * 
+     * @param X
+     * @return 
+     */
+    public double elipse_Y(double X){
+        double A= 643-(2*width)-height;
+        double B= 643 - (2 * height)-width;
+        A= (A/2)*(A/2);
+        B= (B/2)*(B/2);
+        
+        double Y = B - (B*X*X) / A;
+        //System.out.println("Y externo ideal: "+Y);
+        return Y;
+    }/**
+     * 
+     * @param y
+     * @return 
+     */
+        public double elipse_x(double y){
+         double a = 623-(2*breadth)-width;
+         double b= 623 - (2 * breadth) - height ;
+         a = (a/2)*(a/2);
+         b = (b/2)*(b/2);
+         
+         double x= a - ((a)*y*y) / (b);
+            //System.out.println("x interno ideal"+x);
+         return x;
+    }/**
+     * 
+     * @param x
+     * @return 
+     */
+    public double elipse_y(double x){
+         double a = 623-(2 * breadth) - height;
+         double b = 623-(2 * breadth) - width;
+         a = (a/2)*(a/2);
+         b = (b/2)*(b/2);
+         
+         double y= b - ((b)*x*x) / (a);
+         //System.out.println("y interno ideal: "+y);
+         return y;
     }
 }
