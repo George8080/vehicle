@@ -65,7 +65,7 @@ public class PanelPrincipal extends JPanel implements KeyListener, ActionListene
         this.highM = new JButton("<html>-</html>");
         this.avenueP = new JButton("<html>+</html>");
         this.avenueM = new JButton("<html>-</html>");
-        this.min = new JButton("<html><p>Establecer</p><p>Mínimos   </p></html>");
+        this.min = new JButton("<html><p>Establecer</p><p>Mínimos</p></html>");
         this.max = new JButton("<html><p>Establecer</p><p>Máximos   </p></html>");
         
         this.button1.setText("Modo Carrera");
@@ -114,6 +114,7 @@ public class PanelPrincipal extends JPanel implements KeyListener, ActionListene
         
         t.addActionListener(this);
         t.start();
+        Solera();
     }
     /**
      *  Ocupamos este método para imprimir en la interfaz
@@ -134,7 +135,7 @@ public class PanelPrincipal extends JPanel implements KeyListener, ActionListene
         int keyI = e.getKeyCode();
         char keyC = e.getKeyChar();
         int keyL = e.getKeyLocation();
-        System.out.println("Tecla presionada: "+keyI+" _ " + keyC + " _ " + keyL);
+//        System.out.println("Tecla presionada: "+keyI+" _ " + keyC + " _ " + keyL);
         if(keyI==KeyEvent.VK_W || keyI==KeyEvent.VK_UP){
             System.out.println("Avanzando...");
             up = true;
@@ -167,7 +168,7 @@ public class PanelPrincipal extends JPanel implements KeyListener, ActionListene
         int keyI = e.getKeyCode();
         char keyC = e.getKeyChar();
         int keyL = e.getKeyLocation();
-        System.out.println("Tecla soltada: "+keyI+" _ " + keyC + " _ " + keyL);
+//        System.out.println("Tecla soltada: "+keyI+" _ " + keyC + " _ " + keyL);
         if(keyI==KeyEvent.VK_W || keyI==KeyEvent.VK_UP){
             System.out.println("Cancelar avanzando...");
             up = false;
@@ -223,6 +224,8 @@ public class PanelPrincipal extends JPanel implements KeyListener, ActionListene
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        
+            Solera();
         if(e.getSource() == widthP){
             road.setSize(-5, 0, 0);
         }
@@ -305,9 +308,69 @@ public class PanelPrincipal extends JPanel implements KeyListener, ActionListene
         }
         this.repaint();
     }
-    public void inArea(){
-        if(car.getCenterX()>road.Perimeter()){
-            System.out.println("!!");
+    public void Solera(){
+        if( (road.elipse_x(car.CarToRoadY()))<0){
+            //System.out.println("something");
+                 if(car.CarToRoadX()<-Math.sqrt(road.elipse_X(car.CarToRoadY()))){
+                    System.out.println("esta en la izquierda");
+                    car.ColisionX(Math.sqrt(road.elipse_X(car.CarToRoadY())));
+                }
+                if(car.CarToRoadX()>Math.sqrt(road.elipse_X(car.CarToRoadY()))){
+                    System.out.println("esta en la derecha");
+                    car.ColisionX(-Math.sqrt(road.elipse_X(car.CarToRoadY())));
+                }
+        }else{
+            if(car.CarToRoadX()>0){
+             if(car.CarToRoadX()>Math.sqrt(road.elipse_X(car.CarToRoadY()))){
+                    System.out.println("esta fuera en el eje X _ +");
+                    car.ColisionX(-Math.sqrt(road.elipse_X(car.CarToRoadY())));
+                }
+              if(car.CarToRoadX()<Math.sqrt(road.elipse_x(car.CarToRoadY()))){
+                    System.out.println("esta dentro en el eje X _ +" );
+                    car.ColisionX(-Math.sqrt(road.elipse_x(car.CarToRoadY())));
+                }
+            }else{
+                if(car.CarToRoadX()<-Math.sqrt(road.elipse_X(car.CarToRoadY()))){
+                    System.out.println("esta fuera en el eje X _ -");
+                    car.ColisionX(Math.sqrt(road.elipse_X(car.CarToRoadY())));
+                }
+              if(car.CarToRoadX()>-Math.sqrt(road.elipse_x(car.CarToRoadY()))){
+                    System.out.println("esta dentro en el eje X _ -" );
+                    car.ColisionX(Math.sqrt(road.elipse_x(car.CarToRoadY())));
+                }
+            }
+        }
+        if( road.elipse_y(car.CarToRoadX())<0){
+            //System.out.println("nothing");
+                if(car.CarToRoadY()<-Math.sqrt(road.elipse_Y(car.CarToRoadX()))){
+                    System.out.println("esta abajo");
+                    car.ColisionY(-Math.sqrt(road.elipse_Y(car.CarToRoadX())));
+                }
+                if(car.CarToRoadY()>Math.sqrt(road.elipse_Y(car.CarToRoadX()))){
+                    System.out.println("esta arriba");
+                    car.ColisionY(Math.sqrt(road.elipse_Y(car.CarToRoadX())));
+                }
+        }
+        else{
+            if(car.CarToRoadY()>0){
+             if(car.CarToRoadY()>Math.sqrt(road.elipse_Y(car.CarToRoadX()))){
+                    System.out.println("esta fuera en el eje Y _ +");
+                    car.ColisionY(Math.sqrt(road.elipse_Y(car.CarToRoadX())));
+                }
+              if(car.CarToRoadY()<Math.sqrt(road.elipse_y(car.CarToRoadX()))){
+                    System.out.println("esta dentro en el eje Y _ +" );
+                    car.ColisionY(Math.sqrt(road.elipse_y(car.CarToRoadX())));
+                }
+            }else{
+                if(car.CarToRoadY()<-Math.sqrt(road.elipse_Y(car.CarToRoadX()))){
+                    System.out.println("esta fuera en el eje Y _ -");
+                    car.ColisionY(-Math.sqrt(road.elipse_Y(car.CarToRoadX())));
+                }
+              if(car.CarToRoadY()>-Math.sqrt(road.elipse_y(car.CarToRoadX()))){
+                    System.out.println("esta dentro en el eje Y _ -" );
+                    car.ColisionY(-Math.sqrt(road.elipse_y(car.CarToRoadX())));
+                }
+            }
         }
     }
 }
