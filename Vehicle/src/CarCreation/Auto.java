@@ -24,12 +24,15 @@ public class Auto {
     private double[] radio;
     private double degree = 0;
     private double[] degrees;
+    private double centerCarToRoadX;
+    private double centerCarToRoadY;
     
     /**
+     * Este metodo constructor construye el auto y crea las ruedas
      * 
      * @param c Este párametro recibe el color del auto desde la clase PanelPrincipal
-     * @param x 
-     * @param y 
+     * @param x Recibe el centro del auto en su coordenada X
+     * @param y Recibe el centro del auto en su coordenada Y
      */
 
     public Auto (Color c, int x, int y){
@@ -62,7 +65,7 @@ public class Auto {
      *  auto y las ruedas, por ejemplo si el angulo es cero significa que
      *  esta avanzando en dirección recta
      */
-    public void setXY(double vel, double angle){
+    public void movimientoAuto(double vel, double angle){
         degree += vel*angle/3;
         centerY =  (centerY + 3*vel*sin(Math.toRadians(degree)));
         centerX =  (centerX + 3*vel*cos(Math.toRadians(degree)));
@@ -73,21 +76,58 @@ public class Auto {
         for(int i = 0; i < 5; i++){
             intY[i] = (int) (centerY + radio[i]*sin(Math.toRadians(degrees[i]+degree)));
         }
-        lowerLeft.setXY(centerX, centerY,angle*vel/3,0);
-        lowerRight.setXY(centerX, centerY,angle*vel/3,0);
-        upperLeft.setXY(centerX, centerY, angle*vel/3,8*angle);
-        upperRight.setXY(centerX,centerY, angle*vel/3,8*angle);
+        lowerLeft.movimientoRuedas(centerX, centerY,angle*vel/3,0);
+        lowerRight.movimientoRuedas(centerX, centerY,angle*vel/3,0);
+        upperLeft.movimientoRuedas(centerX, centerY, angle*vel/3,8*angle);
+        upperRight.movimientoRuedas(centerX,centerY, angle*vel/3,8*angle);
     }
-    public double getCenterX(){
-        return centerX;
+    /**
+     *  Redefinimos el centro del auto en su coordenada X para que este 
+     *  definido respecto al origen de la pista
+     * 
+     * @return el centro del auto con respecto a la pista
+     */
+    public double CarToRoadX(){
+        centerCarToRoadX= centerX-645/2;
+        //System.out.println("X: " + centerCarToRoadX);
+        return centerCarToRoadX;
     }
-    public double getCenterY(){
-            return centerY;
+        /**
+     *  Redefinimos el centro del auto en su coordenada Y para que este 
+     *  definido respecto al origen de la pista
+     * 
+     * @return el centro del auto con respecto a la pista
+     */
+    
+     public double CarToRoadY(){
+        centerCarToRoadY= -centerY+645/2;
+        //System.out.println("Y: " + centerCarToRoadY);
+        return centerCarToRoadY;
     }
+     /**
+      * Este método retorna el valor que el auto debería tener en caso de que 
+      * sobrepase el límite de la pista en el eje X
+      * 
+      * @param centerX Recibe el límite x, el cual no debe sobrepasar con respecto al centro de la pista
+      */
+     public void ColisionX(double centerX){
+         this.centerX = 645/2 - centerX;
+     }
+      /**
+      * Este método retorna el valor que el auto debería tener en caso de que 
+      * sobrepase el límite de la pista en el eje Y
+      * 
+      * @param centerY Recibe el límite y, el cual no debe sobrepasar con respecto al centro de la pista
+      */
+    public void ColisionY(double centerY){
+         this.centerY = 645/2 - centerY;
+     }
     
     /**
      * 
-     * @param g 
+     *  Este método pinta el auto y las ruedas
+     * 
+     * @param g Recibe gráfico para pintar la pista
      */
     public void paint(Graphics g){
         Graphics2D car = (Graphics2D)g;
