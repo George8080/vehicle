@@ -1,10 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
- */
+
 package ButtonTest;
 
-import vehicle.PanelPrincipal;
+import vehicle.*;
+import CarCreation.*;
+import java.awt.Color;
 import vehicle.Pista;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -14,12 +13,14 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
- * @author jorge
+ * @author Daniela Novoa
+ * @author Jorge Santis
  */
 public class ButtonTest {
     private PanelPrincipal panel;
     private Pista pista;
+    private Auto auto;
+    
     public ButtonTest() {
     }
     
@@ -34,6 +35,7 @@ public class ButtonTest {
     @Before
     public void setUp() {
         panel = new PanelPrincipal();
+        auto = new Auto(Color.red, 0,250);
         pista = new Pista();
     }
     
@@ -45,7 +47,7 @@ public class ButtonTest {
     public void testMax() throws Exception {
         System.out.println("Boton de Maximo");
         pista.setMax();
-        if(pista.getWidth()!=0 || pista.getHeight()!=0 || pista.getBreadth() != 160)
+        if(pista.getWidth()!=10 || pista.getHeight()!=10 || pista.getBreadth() != 160)
             throw new Exception("Variables Incorrectas");
         else
             System.out.println("- Variables Correctas");
@@ -71,7 +73,7 @@ public class ButtonTest {
         System.out.println(pista.getHeight());
         System.out.println(pista.getBreadth());
         */
-        if(pista.getWidth()!=185 || pista.getHeight()!=185 || pista.getBreadth() != 190 )
+        if(pista.getWidth()!=185 || pista.getHeight()!=185 || pista.getBreadth() != 195 )
             throw new Exception("No se mantiene al margen minimo");
         else
             System.out.println("- Se mantiene al margen minimo");
@@ -87,9 +89,29 @@ public class ButtonTest {
         System.out.println(pista.getHeight());
         System.out.println(pista.getBreadth());
         */
-        if(pista.getWidth()!=0 || pista.getHeight()!=0 || pista.getBreadth() != 160)
+        if(pista.getWidth()!=10 || pista.getHeight()!=10 || pista.getBreadth() != 160)
             throw new Exception("No se mantiene al margen maximo");
         else
             System.out.println("- Se mantiene al margen maximo");
+    }
+    
+    @Test
+    public void testLimiteAutoX() throws Exception {
+        auto.ColisionX(10);
+        System.out.println(auto.getCenterX());
+        if(auto.getCenterX()!=312.0)
+            throw new Exception("No se mantiene en la pista con respecto al eje X.");
+        else
+            System.out.println("- Se mantiene en la pista con respecto al eje X.");
+        
+    }
+    @Test
+    public void testLimiteAutoY() throws Exception {
+        auto.ColisionY(10);
+        if(auto.getCenterY()!=312.0)
+            throw new Exception("No se mantiene en la pista con respecto al eje Y.");
+        else
+            System.out.println("- Se mantiene en la pista con respecto al eje Y.");
+        
     }
 }
