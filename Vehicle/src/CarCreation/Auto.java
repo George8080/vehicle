@@ -82,6 +82,22 @@ public class Auto {
         upperRight.movimientoRuedas(centerX,centerY, angle*vel/3,8*angle);
     }
     /**
+     * getter de la posicion X del centro del Auto.
+     * @return Posicion X del auto 
+     */
+    public double getCenterX(){
+        return centerX;
+    }
+    
+    /**
+     * getter de la posicion Y del centro del Auto.
+     * @return Posicion Y del auto 
+     */
+    public double getCenterY(){
+        return centerY;
+    }
+    
+    /**
      *  Redefinimos el centro del auto en su coordenada X para que este 
      *  definido respecto al origen de la pista
      * 
