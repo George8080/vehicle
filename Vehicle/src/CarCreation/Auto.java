@@ -80,12 +80,7 @@ public class Auto {
         upperLeft.setXY(centerX, centerY, angle*vel/3,8*angle);
         upperRight.setXY(centerX,centerY, angle*vel/3,8*angle);
     }
-    public double getCenterX(){
-        return centerX;
-    }
-    public double getCenterY(){
-            return centerY;
-    }
+    
     public double CarToRoadX(){
         centerCarToRoadX= centerX-645/2;
         //System.out.println("X: " + centerCarToRoadX);
