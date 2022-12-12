@@ -15,7 +15,7 @@ El panel principal debe contener una ruta cerrada, con curvas y soleras creadas 
     
  ## Diagrama del UML  
    
-  ![](ProyectoVehicle(1).jpg)  
+  ![](ProyectoVehicle(2).jpg)  
     
   ## Imagen de la Interfaz  
     
