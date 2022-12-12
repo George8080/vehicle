@@ -107,8 +107,8 @@ public class Pista {
      * 
      */
     public double elipse_X(double Y){
-        double A= 643-(2*width)-height;
-        double B= 643 - (2 * height)-width;
+        double A= 583-(2*width);//-height;
+        double B= 583 - (2 * height);//-width;
         A= (A/2)*(A/2);
         B= (B/2)*(B/2);
         
@@ -124,8 +124,8 @@ public class Pista {
      *  a la pista
      */
     public double elipse_Y(double X){
-        double A= 643-(2*width)-height;
-        double B= 643 - (2 * height)-width;
+        double A= 583-(2*width);//-height;
+        double B= 583 - (2 * height);//-width;
         A= (A/2)*(A/2);
         B= (B/2)*(B/2);
         
@@ -140,8 +140,8 @@ public class Pista {
      *  a la pista
      */
         public double elipse_x(double y){
-         double a = 623-(2*breadth)-width;
-         double b= 623 - (2 * breadth) - height ;
+         double a = 683-(2*breadth)-width;
+         double b= 683 - (2 * breadth) - height ;
          a = (a/2)*(a/2);
          b = (b/2)*(b/2);
          
@@ -157,8 +157,8 @@ public class Pista {
      *  
      */
     public double elipse_y(double x){
-         double a = 623-(2 * breadth) - height;
-         double b = 623-(2 * breadth) - width;
+         double a = 683-(2 * breadth) - height;
+         double b = 683-(2 * breadth) - width;
          a = (a/2)*(a/2);
          b = (b/2)*(b/2);
          
