@@ -35,9 +35,9 @@ El panel principal debe contener una ruta cerrada, con curvas y soleras creadas 
        
    - Por otro lado, también decidimos agregar un menú, separado por modo edición y modo carrera, en el modo edición se puede modificar el ancho, alto y grosor de la pista mientras que en el modo carrera se puede hacer uso de la pista creada para utilizar el Auto.  
    
-   - Una de las ideas que decidimos no implementar al final fue la de la creación de un contador de vueltas, porque cuando el auto chocaba continuamente con las soleras era díficil de controlar además de dar una experiencia menos fluida para el usuario.
+   - Una de las ideas que decidimos no implementar al final fue la de la creación de un contador de vueltas y colisiones, en primer lugar porque dictaminamos que era innecesario para el proyecto, considerando que se buscaba priorizar que el auto se mantenga dentro de la pista, y en segundo lugar porque cuando el auto chocaba continuamente con las soleras era díficil de controlar además de dar una experiencia menos fluida para el usuario.
     
-  ## Lista de cosas qué no sabemos hacer  
+  ## Lista de cosas que no sabemos hacer  
   1. Soleras: Problemas para crearlas visualmente y que tengan colisiones al chocar con el auto.  
      - Estado: resuelto     
      - Integrante encargado: Daniela Novoa
