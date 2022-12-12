@@ -59,14 +59,14 @@ public class Pista {
         width += x;
         if(width > 185)
             width = 185;
-        else if(width < 0)
-            width = 0;
+        else if(width < 10)
+            width = 10;
         
         height += y;
         if(height > 185)
             height = 185;
-        else if(height < 0)
-            height = 0;
+        else if(height < 10)
+            height = 10;
         
         breadth += z;
         /*
@@ -74,7 +74,7 @@ public class Pista {
         else if(breadth < 0) breadth = 0;
         */
         if(breadth > 195)
-            breadth = 190;
+            breadth = 195;
         else if(breadth < 160)
             breadth = 160;
         
