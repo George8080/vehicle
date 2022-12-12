@@ -24,6 +24,8 @@ public class Auto {
     private double[] radio;
     private double degree = 0;
     private double[] degrees;
+    private double centerCarToRoadX;
+    private double centerCarToRoadY;
     
     /**
      * 
@@ -84,6 +86,23 @@ public class Auto {
     public double getCenterY(){
             return centerY;
     }
+    public double CarToRoadX(){
+        centerCarToRoadX= centerX-645/2;
+        //System.out.println("X: " + centerCarToRoadX);
+        return centerCarToRoadX;
+    }
+    
+     public double CarToRoadY(){
+        centerCarToRoadY= -centerY+645/2;
+        //System.out.println("Y: " + centerCarToRoadY);
+        return centerCarToRoadY;
+    }
+     public void ColisionX(double centerX){
+         this.centerX = 645/2 - centerX;
+     }
+    public void ColisionY(double centerY){
+         this.centerY = 645/2 - centerY;
+     }
     
     /**
      * 
