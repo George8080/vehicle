@@ -39,12 +39,12 @@ public class Auto {
         color = c;
         centerX = x;
         centerY = y;
-        radio = new double[]{40,Math.sqrt(400+625),Math.sqrt(90+225),Math.sqrt(90+225),Math.sqrt(400+625)};
-        degrees = new double[]{0,-40,-140,140,40};
-        lowerLeft= new Ruedas(x,-12,y,12,degree);
-        lowerRight= new Ruedas(x,-12,y,-12,degree);
-        upperLeft= new Ruedas(x,15,y,20,degree);
-        upperRight= new Ruedas(x,15,y,-20,degree);
+        radio = new double[]{32,Math.sqrt(400+225),Math.sqrt(400+400),Math.sqrt(400+400),Math.sqrt(400+225)};
+        degrees = new double[]{0,-50,-153.43,153.43,50};
+        lowerLeft= new Ruedas(x,-14,y,15,degree);
+        lowerRight= new Ruedas(x,-14,y,-15,degree);
+        upperLeft= new Ruedas(x,15,y,19,degree);
+        upperRight= new Ruedas(x,15,y,-19,degree);
      
         
         intX = new int[]{0,0,0,0,0};
