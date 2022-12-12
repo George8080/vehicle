@@ -2,7 +2,6 @@
 
 package vehicle;
 
-import CarCreation.Auto;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -15,7 +14,6 @@ public class Pista {
     private int width;
     private int height;
     private int breadth;
-    Auto car= new Auto(Color.red, 170, 250);
     
     public Pista(){  
         width = 10;
@@ -23,7 +21,11 @@ public class Pista {
         breadth = 160;
 
     }
-    
+    /**
+     *  ESye método pinta la pista
+     * 
+     * @param g Recibe gráfico para pintar la pista
+     */
     public void paint(Graphics g){
         Graphics2D road = (Graphics2D)g;
                  
@@ -46,10 +48,12 @@ public class Pista {
         road.fillOval(25+width/2+breadth, breadth+25+height/2, 593-(2*breadth)-width, 593-(2*breadth)-height);
     }
     /**
+     *  Este método sirve para redefinir el tamaño de la pista de acuerdo
+     *  a los cambios entregados por el usuario
      * 
-     * @param x
-     * @param y
-     * @param z 
+     * @param x Recibe la coordenada x del cambio de tamaño
+     * @param y Recibe la coordenada y del cambio de tamaño
+     * @param z Recibe la coordenada z del cambio de tamaño
      */
     public void setSize(int x, int y, int z){
         width += x;
@@ -92,13 +96,15 @@ public class Pista {
         breadth = 160;
     }
     /**
-     *  Este método define una elipse en los límites de la pista
-     * para que sirvan de solera
+     *  Este método, como los tres siguientes,  define n  elipses en los límites de la pista
+     * para que sirvan de soleras
      * 
      * @param Y Recibe la coordenada Y del centro del auto, en
      * la clase PanelPrincipal
      * 
-     * @return Retorna la posición X del auto
+     * @return Devuelve la coordenada X del centro de la solera exterior con respecto
+     *  a la solera exterior de la pista
+     * 
      */
     public double elipse_X(double Y){
         double A= 643-(2*width)-height;
@@ -111,8 +117,11 @@ public class Pista {
         return X;
     }/**
      * 
-     * @param X
-     * @return 
+     * @param X Recibe como coordena X el centro del auto con respecto 
+     *   a la solera exterior de la pista, en la clase Principal
+     * 
+     * @return Devuelve la coordenada Y del centro de la solera exterior con respecto
+     *  a la pista
      */
     public double elipse_Y(double X){
         double A= 643-(2*width)-height;
@@ -121,12 +130,14 @@ public class Pista {
         B= (B/2)*(B/2);
         
         double Y = B - (B*X*X) / A;
-        //System.out.println("Y externo ideal: "+Y);
         return Y;
     }/**
      * 
-     * @param y
-     * @return 
+     * @param y Recibe como coordenada y el centro del auto
+     *   con respecto al centro de la pista, en la clase Principal
+     * 
+     * @return  Devuelve la coordenada x del centro de la solera interior con respecto
+     *  a la pista
      */
         public double elipse_x(double y){
          double a = 623-(2*breadth)-width;
@@ -135,12 +146,15 @@ public class Pista {
          b = (b/2)*(b/2);
          
          double x= a - ((a)*y*y) / (b);
-            //System.out.println("x interno ideal"+x);
          return x;
     }/**
      * 
-     * @param x
-     * @return 
+     * @param x Recibe como parametro la coordenada X el centro
+     *  del auto con respecto al centro de la pista, en la clase PanelPrincipal
+     * 
+     * @return Devuelve la coordenada  y del centro de la solera interior con respecto 
+     *  a la pista
+     *  
      */
     public double elipse_y(double x){
          double a = 623-(2 * breadth) - height;
@@ -149,7 +163,6 @@ public class Pista {
          b = (b/2)*(b/2);
          
          double y= b - ((b)*x*x) / (a);
-         //System.out.println("y interno ideal: "+y);
          return y;
     }
 }

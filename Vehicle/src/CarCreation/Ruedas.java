@@ -34,13 +34,14 @@ public class Ruedas{
     
     }
     /**
+     *  Este método crea el movimiento de las ruedas
      * 
-     * @param cX
-     * @param cY
-     * @param angle
-     * @param extra 
+     * @param cX    Es la posición X del centro del auto
+     * @param cY    Es la posición Y del centro del auto
+     * @param angle Es el ángulo en el que giran las ruedas
+     * @param extra Es el ángulo extra de la ruedas delanteras en la que va a girar el auto
      */
-    public void setXY(double cX, double cY, double angle, double extra){
+    public void movimientoRuedas(double cX, double cY, double angle, double extra){
         wheelAng += angle;
         for (int i = 0; i < 4; i++) {
             degrees[i] += angle;
@@ -53,8 +54,9 @@ public class Ruedas{
         }
     }
     /**
+     *  Este método pinta las ruedas
      * 
-     * @param g 
+     * @param g Recibe gráfico para pintar la pista
      */
     
     public void paint(Graphics g){

@@ -119,7 +119,7 @@ public class PanelPrincipal extends JPanel implements KeyListener, ActionListene
     /**
      *  Ocupamos este método para imprimir en la interfaz
      * 
-     * @param g 
+     * @param g Recibe gráfico para pintar la pista
      */
     
     @Override
@@ -129,6 +129,14 @@ public class PanelPrincipal extends JPanel implements KeyListener, ActionListene
         if(gameplay) car.paint(g);
         if(!gameplay) this.requestFocus();
     }
+        /**
+     *  Este método permite detectar las teclas presionadas para 
+     *  controlar la dirección del auto
+     * 
+     * @param e Recibe un KeyEvent con el que comparamos el
+     *  caracter presionado y su localización para ver si corresponde
+     *  a alguna dirección por ejemplo la tecla UP o W
+     */
     
     @Override
     public void keyPressed(KeyEvent e){
@@ -155,7 +163,7 @@ public class PanelPrincipal extends JPanel implements KeyListener, ActionListene
         this.repaint();
     }
     /**
-     *  Este método permite detectar las teclas presionadas para 
+     *  Este método permite detectar las teclas soltadas para 
      *  controlar la dirección del auto
      * 
      * @param e Recibe un KeyEvent con el que comparamos el
@@ -304,10 +312,15 @@ public class PanelPrincipal extends JPanel implements KeyListener, ActionListene
                     if(grados < 0) grados = 0;
                 }
             }
-            car.setXY(-vel, grados);
+            car.movimientoAuto(-vel, grados);
         }
         this.repaint();
     }
+    /**
+     *  Este método compara si la posicion del auto se encuentra dentro de la pista
+     *  recibiendo información de las clases Pista y Auto
+     */
+    
     public void Solera(){
         if( (road.elipse_x(car.CarToRoadY()))<0){
             //System.out.println("something");
