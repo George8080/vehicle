@@ -95,4 +95,14 @@ public class Pista {
         double area=Math.PI*(width+height);
         return area;
     }
+    
+    public int getWidth(){
+        return this.width;
+    }
+    public int getHeight(){
+        return this.height;
+    }
+    public int getBreadth(){
+        return this.breadth;
+    }
 }
